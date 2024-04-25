@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweat Treats</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        padding: 20px;
+      }
+      header {
+        background-color: #f4ecec;
+        padding: 20px;
+        text-align: center;
+      }
+      nav ul {
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none;
+        padding: 0;
+      }
+      nav a {
+        text-decoration: none;
+        color: #333;
+      }
+      nav a:hover {
+        color: #999;
+      }
+      main {
+        background-color: #fff;
+        padding: 20px;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      ul#product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 20px;
+      }
+      button {
+        display: block;
+        background-color: #f4ecec;
+        padding: 10px;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #e9e3e3;
+      }
+      #cart {
+        margin-top: 20px;
+        text-align: center;
+      }
+      section {
+        background-color: #fff;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      footer {
+        background-color: #f4ecec;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sweat Treats</h1>
+      <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#cookies">Cookie Flavors</a></li>
+          </ul>
+      </nav>
+    </header>
+        <main id="home">
+            <h1>Our Delicious Products</h1>
+            <ul id="product-list">
+              <li><button id="product-1">Chocolate Chip Cookie - $2.00</button></li>
+              <li><button id="product-2">Peanut Butter Cookie - $2.50</button></li>
+              <li><button id="product-3">Oatmeal Raisin Cookie - $2.25</button></li>
+              <li><button id="product-4">Sugar Cookie - $1.75</button></li>
+            </ul>
+            <div id="cart">
+              <p>Cart: <span id="cart-total">$0.00</span></p>
+            </div>
+        </main>
+        <section id="about">
+        <h2>About Sweat Treats</h2>
+            <p>
+                Sweat Treats is a small, family-owned bakery that has been serving up
+                delicious baked goods for over 20 years. Our cozy shop is the perfect place
+                to relax and enjoy a freshly baked cookie with a cup of coffee.
+            </p>
+        </section>
+        <section id="cookies">
+            <h2>Cookie Flavors</h2>
+            <div id="cookie-1">
+                <img src="chocolate-chip.jpg" alt="Chocolate Chip Cookie" />
+                <p>
+                Our classic chocolate chip cookie is made with premium semi-sweet
+                chocolate chips and a hint of sea salt. A customer favorite!
+                </p>
+            </div>
+            <div id="cookie-2">
+                <img src="peanut-butter.jpg" alt="Peanut Butter Cookie" />
+                <p>
+                Our peanut butter cookie is made with creamy peanut butter and a sprinkle
+                of sugar on top. A delicious and satisfying treat.
+                </p>
+            </div>
+            <div id="cookie-3">
+                <img src="oatmeal-raisin.jpg" alt="Oatmeal Raisin Cookie" />
+                <p>
+                Our oatmeal raisin cookie is made with rolled oats, plump raisins, and a
+                hint of cinnamon. A hearty and wholesome option.
+                </p>
+            </div>
+            <div id="cookie-4">
+                <img src="sugar.jpg" alt="Sugar Cookie" />
+                <p>
+                Our sugar cookie is a classic, buttery cookie topped with sparkling sugar.
+                A simple and delicious treat.
+                </p>
+            </div>
+        </section>
+      <section id="cart">
+        <h2>Cart</h2>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="checkout">Checkout</button>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2022 Sweat Treats</p>
+    </footer>
+    <script>
+      const productList = document.getElementById("product-list");
+      const cartTotal = document.getElementById("cart-total");
+      let cart = [];
+      productList.addEventListener("click", (event) => {
+        if (event.target.tagName === "BUTTON") {
+          const productId = event.target.id.split("-")[1];
+          const productPrice = parseFloat(event.target.innerText.split("$")[1]);
+          addToCart(productId, productPrice);
+        }
+      });
+      function addToCart(productId, productPrice) {
+        const product = { id: productId, price: productPrice };
+        cart.push(product);
+        updateCart();
+      }
+      function updateCart() {
+        let totalPrice = 0;
+        cart.forEach((product) => {
+          totalPrice += product.price;
+        });
+        cartTotal.innerText = `$${totalPrice.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

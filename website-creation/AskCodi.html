@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ffecd9;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #ffd8c6;
+        padding: 10px;
+        text-align: center;
+      }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      nav a {
+        text-decoration: none;
+        color: #5e503f;
+      }
+      .product {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+      .product div {
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+        background-color: #ffe8d6;
+      }
+      footer {
+        background-color: #ffd8c6;
+        text-align: center;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+    <title>Sweet Treats Bakery</title>
+  </head>
+  <body>
+    <header>
+      <h1>Sweet Treats Bakery</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+      </nav>
+    </header>
+    <div class="product">
+      <div>
+        <h2>Chocolate Chip Cookies</h2>
+        <p>Delicious chocolate chip cookies. $2 each</p>
+        <button onclick="addToCart('Chocolate Chip Cookies', 2)">
+          Add to Cart
+        </button>
+      </div>
+      <div>
+        <h2>Sugar Cookies</h2>
+        <p>Classic sugar cookies. $1.50 each</p>
+        <button onclick="addToCart('Sugar Cookies', 1.5)">Add to Cart</button>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2022 Sweet Treats Bakery</p>
+      <div id="cart">
+        Cart: <span id="cartItems">0</span> items, Total: $<span id="cartTotal"
+          >0.00</span
+        >
+      </div>
+    </footer>
+    <script>
+      let cart = [];
+      function addToCart(item, price) {
+        cart.push({ item, price });
+        updateCart();
+      }
+      function updateCart() {
+        let total = 0;
+        let items = cart.length;
+        for (let i = 0; i < cart.length; i++) {
+          total += cart[i].price;
+        }
+        document.getElementById("cartItems").innerText = items;
+        document.getElementById("cartTotal").innerText = total.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

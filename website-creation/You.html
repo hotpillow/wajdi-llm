@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sweet Treats Bakery</title>
+    <style>
+      body {
+        background-color: #f7e6e6;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #f9d9d9;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 36px;
+        color: #a05252;
+      }
+
+      nav {
+        margin-top: 20px;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #a05252;
+        font-size: 18px;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .product {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      .product img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-right: 20px;
+      }
+
+      .product-info {
+        flex-grow: 1;
+      }
+
+      .product-name {
+        font-size: 24px;
+        color: #a05252;
+        margin: 0;
+      }
+
+      .product-price {
+        font-size: 18px;
+        color: #a05252;
+        margin: 10px 0;
+      }
+
+      footer {
+        background-color: #f9d9d9;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #a05252;
+      }
+
+      .cart {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #f9d9d9;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 18px;
+        color: #a05252;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sweet Treats Bakery</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home">
+        <h2>Welcome to Sweet Treats Bakery!</h2>
+        <div class="product">
+          <img src="cookie1.jpg" alt="Cookie 1" />
+          <div class="product-info">
+            <h3 class="product-name">Chocolate Chip Cookie</h3>
+            <p class="product-price">$2.50</p>
+          </div>
+        </div>
+        <div class="product">
+          <img src="cookie2.jpg" alt="Cookie 2" />
+          <div class="product-info">
+            <h3 class="product-name">Oatmeal Raisin Cookie</h3>
+            <p class="product-price">$2.00</p>
+          </div>
+        </div>
+        <div class="product">
+          <img src="cookie3.jpg" alt="Cookie 3" />
+          <div class="product-info">
+            <h3 class="product-name">Sugar Cookie</h3>
+            <p class="product-price">$1.50</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2>About Sweet Treats Bakery</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget
+          mauris id felis tincidunt tristique. Mauris iaculis, mi vitae pulvinar
+          fringilla, sapien lorem pellentesque neque, sit amet semper felis mi
+          et lacus.
+        </p>
+        <p>
+          Phasellus auctor neque non felis facilisis, sed pulvinar urna aliquam.
+          Aliquam venenatis in arcu id suscipit. Donec porttitor gravida ex, et
+          cursus urna consequat eu. Fusce sed malesuada ligula.
+        </p>
+      </section>
+    </main>
+
+    <footer>&copy; 2024 Sweet Treats Bakery. All rights reserved.</footer>
+
+    <div class="cart">
+      <span id="cartTotal">Total: $0.00</span>
+    </div>
+
+    <script>
+      let cartTotal = 0;
+
+      function addToCart(price) {
+        cartTotal += price;
+        document.getElementById("cartTotal").textContent =
+          "Total: $" + cartTotal.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

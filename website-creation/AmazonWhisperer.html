@@ -1,0 +1,250 @@
+c<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweat Treats Bakery</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: #ffcdd2;
+        padding: 20px;
+      }
+
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin: 0 20px;
+      }
+
+      nav ul li a {
+        color: #e53935;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      /* Hero Section Styles */
+      .hero {
+        background-image: url("cozy-bakery-background.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 24px;
+        margin-bottom: 40px;
+      }
+
+      /* Products Section Styles */
+      .products {
+        padding: 40px;
+        background-color: #fff3e0;
+      }
+
+      .products h2 {
+        text-align: center;
+        color: #e64a19;
+        margin-bottom: 40px;
+      }
+
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px;
+      }
+
+      .product-item {
+        background-color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-item img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      .product-item h3 {
+        color: #e64a19;
+        margin-bottom: 10px;
+      }
+
+      .product-item p {
+        color: #757575;
+        margin-bottom: 20px;
+      }
+
+      .product-item button {
+        background-color: #e64a19;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: #e53935;
+        color: #ffffff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      footer p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Welcome to Sweat Treats Bakery</h1>
+        <p>Indulge in our delectable homemade cookies and pastries.</p>
+        <a href="#products" class="cta-button">Shop Now</a>
+      </section>
+
+      <section class="products" id="products">
+        <div class="product-list">
+          <div class="product-item">
+            <img src="chocolate-chip-cookie.jpg" alt="Chocolate Chip Cookie" />
+            <h3>Chocolate Chip Cookie</h3>
+            <p>$2.50 each</p>
+            <button>Add to Cart</button>
+          </div>
+          <div class="product-item">
+            <img src="blueberry-muffin.jpg" alt="Blueberry Muffin" />
+            <h3>Blueberry Muffin</h3>
+            <p>$3.00 each</p>
+            <button>Add to Cart</button>
+          </div>
+          <div class="product-item">
+            <img src="cinnamon-roll.jpg" alt="Cinnamon Roll" />
+            <h3>Cinnamon Roll</h3>
+            <p>$4.00 each</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <h2>About Sweat Treats Bakery</h2>
+        <p>
+          Sweat Treats Bakery is dedicated to providing the most delicious
+          homemade cookies and pastries. Our recipes are crafted with care and
+          passion, ensuring every bite is a moment of joy. From classic
+          chocolate chip cookies to indulgent cinnamon rolls, we have something
+          to satisfy every sweet craving.
+        </p>
+      </section>
+
+      <section class="cookie-flavors">
+        <h2>Our Cookie Flavors</h2>
+        <div class="flavor-item">
+          <h3>Chocolate Chip</h3>
+          <p>
+            A timeless classic, our chocolate chip cookies are loaded with
+            chunks of rich chocolate and baked to perfection.
+          </p>
+        </div>
+        <div class="flavor-item">
+          <h3>Snickerdoodle</h3>
+          <p>
+            Coated in cinnamon sugar, our snickerdoodle cookies are soft, chewy,
+            and irresistibly flavorful.
+          </p>
+        </div>
+        <div class="flavor-item">
+          <h3>Oatmeal Raisin</h3>
+          <p>
+            Packed with oats and plump raisins, our oatmeal raisin cookies are a
+            wholesome treat for any occasion.
+          </p>
+        </div>
+      </section>
+
+      <section class="cart">
+        <h2>Your Cart</h2>
+        <div class="cart-items">
+          <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+          <h3>Total: <span id="cart-total">$0.00</span></h3>
+          <button>Checkout</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Sweat Treats Bakery. All rights reserved.</p>
+    </footer>
+
+    <script>
+      let totalPrice = 0;
+
+      function addToCart(productName, price) {
+        totalPrice += price;
+        document.getElementById(
+          "cart-total"
+        ).textContent = `$${totalPrice.toFixed(2)}`;
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        cartItem.textContent = `${productName} - $${price.toFixed(2)}`;
+        document.querySelector(".cart-items").appendChild(cartItem);
+      }
+
+      const addToCartButtons = document.querySelectorAll(
+        ".product-item button"
+      );
+      addToCartButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const productName =
+            this.parentElement.querySelector("h3").textContent;
+          const productPrice = parseFloat(
+            this.parentElement.querySelector("p").textContent.slice(1)
+          ); // Remove '$' sign and parse as float
+          saddToCart(productName, productPrice);
+        });
+      });
+    </script>
+  </body>
+</html>

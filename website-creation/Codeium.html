@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweet Treats Bakery</title>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7e1dd; /* cozy background color */
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #f9c4a1; /* header color */
+        padding: 10px;
+        text-align: center;
+        font-size: 24px;
+      }
+
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .product {
+        margin: 20px;
+        padding: 10px;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 200px;
+      }
+
+      img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      button {
+        background-color: #f9c4a1;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #cart {
+        text-align: center;
+        margin: 20px;
+        padding: 10px;
+        background-color: #f9c4a1;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Sweet Treats Bakery</header>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Our Delicious Cookies</h1>
+      <div class="product">
+        <img src="cookie1.jpg" alt="Chocolate Chip Cookie" />
+        <h2>Chocolate Chip Cookie</h2>
+        <p>$2.50</p>
+        <button onclick="addToCart('Chocolate Chip Cookie', 2.50)">
+          Add to Cart
+        </button>
+      </div>
+      <div class="product">
+        <img src="cookie2.jpg" alt="Sugar Cookie" />
+        <h2>Sugar Cookie</h2>
+        <p>$2.00</p>
+        <button onclick="addToCart('Sugar Cookie', 2.00)">Add to Cart</button>
+      </div>
+
+      <div id="cart">
+        <h3>Shopping Cart</h3>
+        <ul id="cart-items">
+          <!-- Cart items will be added dynamically -->
+        </ul>
+        <p>Total: <span id="total-price">$0.00</span></p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2022 Sweet Treats Bakery</p>
+    </footer>
+
+    <script>
+      // JavaScript for adding products to the cart and calculating total price
+      let cartItems = [];
+      let totalPrice = 0;
+
+      function addToCart(itemName, price) {
+        cartItems.push({ name: itemName, price: price });
+        totalPrice += price;
+        updateCart();
+      }
+
+      function updateCart() {
+        const cartList = document.getElementById("cart-items");
+        cartList.innerHTML = "";
+        cartItems.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = `${item.name} - $${item.price}`;
+          cartList.appendChild(li);
+        });
+
+        const total = document.getElementById("total-price");
+        total.textContent = `$${totalPrice.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>
