@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweet Treats Bakery</title>
+    <style>
+      body {
+        font-family: "Helvetica", "Arial", sans-serif;
+        background-color: #f3e5f5;
+        color: #333;
+      }
+      .header {
+        background-color: #fedbd0;
+        padding: 10px;
+        text-align: center;
+      }
+      .product {
+        background-color: #fce4ec;
+        margin: 15px;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .footer {
+        background-color: #fedbd0;
+        padding: 10px;
+        text-align: center;
+      }
+      .cart {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: #ffebee;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Sweet Treats Bakery</h1>
+      <nav>
+        <a href="#home">Home</a> |
+        <a href="#about">About</a>
+      </nav>
+    </div>
+
+    <div id="home">
+      <div class="product">
+        <h2>Chocolate Chip Cookie</h2>
+        <p>$1.99 each</p>
+        <p>Classic cookie with rich chocolate chips.</p>
+        <button onclick="addToCart(1.99)">Add to Cart</button>
+      </div>
+      <!-- Repeat for other products -->
+    </div>
+
+    <div id="about">
+      <h2>About Us</h2>
+      <p>Welcome to Sweet Treats - your cozy neighborhood bakery.</p>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2023 Sweet Treats Bakery</p>
+    </div>
+
+    <div class="cart">
+      <h3>Cart Total: $<span id="total">0.00</span></h3>
+    </div>
+
+    <script>
+      var cartTotal = 0;
+      function addToCart(price) {
+        cartTotal += price;
+        document.getElementById("total").textContent = cartTotal.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
