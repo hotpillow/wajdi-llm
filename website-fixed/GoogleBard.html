@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweat Treats</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-image: url("images/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 50px 0;
+      }
+
+      .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 80%;
+      }
+
+      .product {
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 30%;
+      }
+
+      .product img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .product span {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .about {
+        padding: 50px 0;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #ddd;
+      }
+
+      .cart {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: none;
+      }
+
+      .cart.active {
+        display: block;
+      }
+
+      .empty-cart,
+      .total {
+        margin-bottom: 10px;
+      }
+
+      .cart-items {
+        list-style: none;
+        padding: 0;
+      }
+
+      .cart-items li {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Sweat Treats</h1>
+        <nav>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Fresh-baked with love, for your sweet tooth.</h2>
+        <p>
+          Indulge in our handcrafted cookies, bursting with flavor and made with
+          the finest ingredients.
+        </p>
+        <div class="products">
+          <div class="product">
+            <img src="images/chocolate_chip.jpg" alt="Chocolate Chip Cookies" />
+            <h3>Chocolate Chip</h3>
+            <p>
+              A timeless classic. Gooey chocolate chunks nestled in a soft,
+              buttery dough.
+            </p>
+            <span>$2.50</span>
+            <button data-flavor="chocolate_chip">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="images/snickerdoodle.jpg" alt="Snickerdoodle Cookies" />
+            <h3>Snickerdoodle</h3>
+            <p>
+              A delightful treat with a hint of cinnamon sugar, soft on the
+              inside and slightly crisp on the outside.
+            </p>
+            <span>$2. </span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

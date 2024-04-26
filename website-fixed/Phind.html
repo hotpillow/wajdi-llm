@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweat Treats</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+      }
+
+      header,
+      .footer {
+        background-color: #ff69b4;
+        color: #000000; /* Changed to black for better contrast */
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #ff69b4;
+        padding: 10px;
+      }
+
+      nav a {
+        color: #000000; /* Changed to black for better contrast */
+        text-decoration: none;
+      }
+
+      .main-content {
+        padding: 20px;
+      }
+
+      .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .product {
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+
+      .product:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .cart {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background-color: #ff69b4;
+        color: #000000; /* Changed to black for better contrast */
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+
+      .cart:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sweat Treats</h1>
+    </header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="main-content">
+      <h2>Our Delicious Cookies</h2>
+      <div class="product-list">
+        <div class="product">
+          <img src="cookie1.jpg" alt="Cookie 1" width="100" />
+          <h3>Chocolate Chip</h3>
+          <p>$2.50</p>
+          <button>Add to Cart</button>
+        </div>
+        <!-- Add more products here -->
+      </div>
+    </div>
+    <div class="cart">
+      <h3>Cart</h3>
+      <p>Total: $0</p>
+    </div>
+    <div class="footer">
+      <p>&copy; 2024 Sweat Treats. All rights reserved.</p>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cart = document.querySelector(".cart");
+        const products = document.querySelectorAll(".product");
+        let totalPrice = 0;
+
+        products.forEach((product) => {
+          product
+            .querySelector("button")
+            .addEventListener("click", function () {
+              const price = parseFloat(
+                product.querySelector("p").textContent.replace("$", "")
+              );
+              totalPrice += price;
+              cart.querySelector(
+                "p"
+              ).textContent = `Total: $${totalPrice.toFixed(2)}`;
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

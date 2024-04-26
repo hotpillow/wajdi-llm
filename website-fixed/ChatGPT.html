@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweet Treats Bakery</title>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9ecd1;
+        color: #444;
+      }
+      header {
+        background-color: #ffc0cb;
+        padding: 20px;
+        text-align: center;
+      }
+      header nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      header nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+      header nav ul li a {
+        color: #333; /* Changed from #fff to #333 for better contrast */
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .product {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      footer {
+        background-color: #ffc0cb;
+        padding: 20px;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      .cart {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .cart h2 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sweet Treats Bakery</h1>
+      <nav>
+        <ul>
+          <li><a href="#" style="color: #333">Home</a></li>
+          <li><a href="#about" style="color: #333">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h2>Our Products</h2>
+      <div class="product">
+        <img src="cookie_chocolate_chip.jpg" alt="Chocolate Chip Cookie" />
+        <h3>Chocolate Chip Cookie</h3>
+        <p>
+          A classic favorite, our chocolate chip cookie is made with premium
+          chocolate chips and baked to perfection.
+        </p>
+        <p>Price: $2.50</p>
+        <button onclick="addToCart('Chocolate Chip Cookie', 2.50)">
+          Add to Cart
+        </button>
+      </div>
+      <div class="product">
+        <img src="cookie_sugar.jpg" alt="Sugar Cookie" />
+        <h3>Sugar Cookie</h3>
+        <p>
+          Our sugar cookie is soft, buttery, and topped with colorful sprinkles.
+          Perfect for any occasion!
+        </p>
+        <p>Price: $2.00</p>
+        <button onclick="addToCart('Sugar Cookie', 2.00)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="cookie_double_chocolate.jpg" alt="Double Chocolate Cookie" />
+        <h3>Double Chocolate Cookie</h3>
+        <p>
+          Indulge in our rich and fudgy double chocolate cookie, packed with
+          double the chocolate goodness.
+        </p>
+        <p>Price: $3.00</p>
+        <button onclick="addToCart('Double Chocolate Cookie', 3.00)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+    <div class="cart">
+      <h2>Cart</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: $</p>
+      <p id="total-price">0.00</p>
+    </div>
+    <footer>
+      <p>&copy; 2024 Sweet Treats Bakery. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // JavaScript
+      const cartItems = [];
+
+      function addToCart(product, price) {
+        cartItems.push({ product, price });
+        updateCart();
+      }
+
+      function updateCart() {
+        const cartList = document.getElementById("cart-items");
+        const totalPriceElement = document.getElementById("total-price");
+        let totalPrice = 0;
+
+        // Clear previous items
+        cartList.innerHTML = "";
+
+        // Populate cart items
+        cartItems.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = `${item.product}: $${item.price.toFixed(2)}`;
+          cartList.appendChild(li);
+          totalPrice += item.price;
+        });
+
+        // Update total price
+        totalPriceElement.textContent = totalPrice.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

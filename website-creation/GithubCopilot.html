@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #f5f5dc;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        background-color: #f8f8f8;
+        padding: 10px;
+        text-align: center;
+      }
+      #cart {
+        float: right;
+      }
+      .product {
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+      }
+      footer {
+        background-color: #f8f8f8;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+    <script>
+      var cart = [];
+      function addToCart(product, price) {
+        cart.push({ product: product, price: price });
+        document.getElementById("cart").innerText =
+          "Cart (" + cart.length + ")";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Sweat Treats</h1>
+      <a href="#about">About</a>
+      <div id="cart">Cart (0)</div>
+    </header>
+    <section id="about">
+      <h2>About Sweat Treats</h2>
+      <p>
+        Sweat Treats is a small, family-owned bakery that has been serving up
+        delicious baked goods for over 20 years. Our cozy shop is the perfect
+        place to relax and enjoy a freshly baked cookie with a cup of coffee.
+      </p>
+    </section>
+    <section id="products">
+      <div class="product">
+        <img src="chocolate-chip.jpg" alt="Chocolate Chip Cookie" />
+        <h2>Chocolate Chip Cookie</h2>
+        <p>
+          Our classic chocolate chip cookie is made with premium semi-sweet
+          chocolate chips and a hint of sea salt. A customer favorite!
+        </p>
+        <button onclick="addToCart('Chocolate Chip Cookie', 1.99)">
+          Add to Cart - $1.99
+        </button>
+      </div>
+      <!-- Add more products here -->
+    </section>
+    <footer>&copy; 2022 Sweat Treats</footer>
+  </body>
+</html>
